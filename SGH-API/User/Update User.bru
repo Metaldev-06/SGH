@@ -1,0 +1,21 @@
+meta {
+  name: Update User
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{URL}}/users/5c1415ee-eed4-4c76-a4d6-98afe547a1c7
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{TOKEN-MANAGER}}
+}
+
+body:json {
+  {
+    "firstName": "LUIS"
+  }
+}

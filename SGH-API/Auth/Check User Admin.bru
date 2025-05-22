@@ -1,0 +1,20 @@
+meta {
+  name: Check User Admin
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{URL}}/auth/check-admin
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "firstName": "Fernando",
+    "lastName": "Diaz",
+    "email": "fernydiaz62@gmail.com",
+    "password": "Metaldroide666"
+  }
+}
