@@ -17,6 +17,11 @@ export class Client {
   dni: string;
 
   @Column('text', {
+    nullable: true,
+  })
+  address: string;
+
+  @Column('text', {
     nullable: false,
   })
   tel: string;

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './features/auth/auth.module';
 import { UsersModule } from './features/users/users.module';
 import { ClientsModule } from './features/clients/clients.module';
+import { ReservationModule } from './features/reservation/reservation.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ClientsModule } from './features/clients/clients.module';
     AuthModule,
     UsersModule,
     ClientsModule,
+    ReservationModule,
   ],
   controllers: [],
   providers: [],
