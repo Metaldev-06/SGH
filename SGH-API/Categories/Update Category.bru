@@ -1,0 +1,21 @@
+meta {
+  name: Update Category
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{URL}}/category/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{TOKEN-ADMIN}}
+}
+
+body:json {
+  {
+    "price": 20001
+  }
+}

@@ -3,34 +3,36 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   Relation,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
-import { Client } from 'src/features/clients/entities/client.entity';
+
+import { Room } from 'src/features/rooms/entities/room.entity';
 
 @Entity()
-export class Reservation {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class Category {
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column('text', {
     nullable: false,
+    unique: true,
   })
-  arrivalDate: Date;
+  name: string;
 
-  @Column('text', {
-    nullable: true,
-  })
-  departureDate: Date;
-
-  @ManyToOne(() => Client, (client) => client.reservations, {
+  @Column('numeric', {
     nullable: false,
+    precision: 10,
+    scale: 2,
   })
-  clientId: Relation<Client>;
+  price: number;
+
+  @OneToMany(() => Room, (room) => room.categoryId, {})
+  rooms: Relation<Room[]>;
 
   @CreateDateColumn()
   createdAt: Date;

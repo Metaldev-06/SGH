@@ -4,6 +4,8 @@ import { AuthModule } from './features/auth/auth.module';
 import { UsersModule } from './features/users/users.module';
 import { ClientsModule } from './features/clients/clients.module';
 import { ReservationModule } from './features/reservation/reservation.module';
+import { RoomsModule } from './features/rooms/rooms.module';
+import { CategoryModule } from './features/category/category.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { ReservationModule } from './features/reservation/reservation.module';
     UsersModule,
     ClientsModule,
     ReservationModule,
+    RoomsModule,
+    CategoryModule,
   ],
   controllers: [],
   providers: [],

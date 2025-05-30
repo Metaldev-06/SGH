@@ -1,4 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Relation,
+  UpdateDateColumn,
+} from 'typeorm';
+
+import { Exclude } from 'class-transformer';
+import { Reservation } from 'src/features/reservation/entities/reservation.entity';
 
 @Entity()
 export class Client {
@@ -22,28 +34,44 @@ export class Client {
   address: string;
 
   @Column('text', {
+    nullable: true,
+  })
+  city: string;
+
+  @Column('text', {
+    nullable: true,
+  })
+  state: string;
+
+  @Column('text', {
     nullable: false,
   })
   tel: string;
 
   @Column('text', {
-    nullable: false,
+    nullable: true,
     unique: true,
   })
   email: string;
 
   @Column('boolean', {
     default: false,
+    nullable: false,
   })
   partnerAca: boolean;
 
-  @Column('text', {
-    nullable: false,
+  @OneToMany(() => Reservation, (reservation) => reservation.clientId, {
+    cascade: true,
   })
-  arrivalDate: Date;
+  reservations: Relation<Reservation[]>;
 
-  @Column('text', {
-    nullable: true,
-  })
-  departureDate: Date;
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @DeleteDateColumn()
+  @Exclude()
+  deletedAt: Date;
 }

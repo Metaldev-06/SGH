@@ -1,0 +1,22 @@
+meta {
+  name: Create Category
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{URL}}/category/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{TOKEN-ADMIN}}
+}
+
+body:json {
+  {
+    "name": "Habitación Triple",
+    "price": 60000
+  }
+}
