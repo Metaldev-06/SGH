@@ -1,0 +1,28 @@
+meta {
+  name: Get All Rooms
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL}}/rooms/?sort=numberRoom
+  body: none
+  auth: bearer
+}
+
+params:query {
+  sort: numberRoom
+}
+
+auth:bearer {
+  token: {{TOKEN-ADMIN}}
+}
+
+body:json {
+  {
+    "numberRoom": "4",
+    "capacity": 3,
+    "description": "Habitación triple - 3 camas individuales",
+    "state": "Disponible"
+  }
+}

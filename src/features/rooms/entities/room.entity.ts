@@ -3,15 +3,12 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ManyToOne,
   PrimaryGeneratedColumn,
-  Relation,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
 import { StateRoom } from 'src/common/enums/state-room.enum';
-import { Category } from 'src/features/category/entities/category.entity';
 
 @Entity()
 export class Room {
@@ -39,9 +36,6 @@ export class Room {
     default: StateRoom.AVAILABLE,
   })
   state: StateRoom;
-
-  @ManyToOne(() => Category, (category) => category.rooms, {})
-  categoryId: Relation<Category>;
 
   @CreateDateColumn()
   createdAt: Date;

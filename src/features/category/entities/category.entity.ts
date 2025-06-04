@@ -31,9 +31,6 @@ export class Category {
   })
   price: number;
 
-  @OneToMany(() => Room, (room) => room.categoryId, {})
-  rooms: Relation<Room[]>;
-
   @CreateDateColumn()
   createdAt: Date;
 
