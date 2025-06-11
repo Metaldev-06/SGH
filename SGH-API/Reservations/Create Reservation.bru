@@ -1,0 +1,22 @@
+meta {
+  name: Create Reservation
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{URL}}/reservation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "price": 27.000,
+    "arrivalDate": "2025-06-12T21:42:03.984Z",
+    "departureDate": "2025-06-13T21:07:58.175Z",
+    "clientId": "b275f60c-3450-45a7-9ccc-f9dcd97dee79",
+    "roomId": 2,
+    "categoryId": 1
+  }
+}

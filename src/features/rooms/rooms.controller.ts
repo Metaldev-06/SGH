@@ -12,12 +12,15 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 
+import { Auth } from '../auth/decorators/auth.decorator';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { PaginationDto } from 'src/common/dtos/pagination.dto';
+import { Role } from 'src/common/enums/user-role.enum';
 import { RoomsService } from './rooms.service';
 import { UpdateRoomDto } from './dto/update-room.dto';
 
 @Controller('rooms')
+@Auth(Role.MANAGER)
 @UseInterceptors(ClassSerializerInterceptor)
 export class RoomsController {
   constructor(private readonly roomsService: RoomsService) {}

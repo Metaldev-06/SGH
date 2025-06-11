@@ -120,7 +120,7 @@ export class UsersService {
   async findOneByEmail(email: string) {
     const user = await this.usersRepository.findOneBy({ email });
 
-    if (!user) throw new UnauthorizedException('Credentials are not valid');
+    if (!user) throw new UnauthorizedException('Credenciales invalidas');
 
     return user;
   }

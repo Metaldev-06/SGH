@@ -38,6 +38,10 @@ export class AuthService {
   async login({ email, password }: LoginAuthDto) {
     const user = await this.userService.findOneByEmail(email);
 
+    // if (!user) {
+    //   throw new BadRequestException('Credenciales incorrectas');
+    // }
+
     await ComparePassword(password, user.password);
 
     return {

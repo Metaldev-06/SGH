@@ -10,5 +10,6 @@ import { PaginationService } from 'src/common/services/pagination/pagination.ser
   imports: [TypeOrmModule.forFeature([Category])],
   controllers: [CategoryController],
   providers: [CategoryService, PaginationService],
+  exports: [CategoryService, TypeOrmModule],
 })
 export class CategoryModule {}

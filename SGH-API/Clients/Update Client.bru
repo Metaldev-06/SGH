@@ -1,0 +1,17 @@
+meta {
+  name: Update Client
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{URL}}/clients/fea85baf-8377-469b-ab4f-6d10c496add3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "partnerAca": true
+  }
+}

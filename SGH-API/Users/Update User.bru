@@ -5,17 +5,17 @@ meta {
 }
 
 patch {
-  url: {{URL}}/users/b2740bc2-99bf-4f84-af9c-406c337d45b3
+  url: {{URL}}/users/6de25811-fe9e-4add-b9ca-2fb7ff377520
   body: json
   auth: bearer
 }
 
 auth:bearer {
-  token: {{TOKEN-MANAGER}}
+  token: {{TOKEN-ADMIN}}
 }
 
 body:json {
   {
-    "firstName": "Daniel"
+    "role": "Gerente"
   }
 }

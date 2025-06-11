@@ -1,0 +1,24 @@
+meta {
+  name: Get All Clients
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL}}/clients/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Cliente ",
+    "dni": "42185904",
+    "address": "Juan Luis Diaz 235",
+    "city": "Formosa",
+    "state": "Formosa",
+    "tel": "3704550519",
+    "email": "fernydiaz62@gmail.com",
+    "partnerAca": true
+  }
+}

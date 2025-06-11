@@ -3,7 +3,8 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  OneToMany,
+  ManyToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   Relation,
   UpdateDateColumn,
@@ -11,7 +12,7 @@ import {
 
 import { Exclude } from 'class-transformer';
 
-import { Room } from 'src/features/rooms/entities/room.entity';
+import { Reservation } from 'src/features/reservation/entities/reservation.entity';
 
 @Entity()
 export class Category {
@@ -30,6 +31,9 @@ export class Category {
     scale: 2,
   })
   price: number;
+
+  @ManyToOne(() => Reservation, (reservation) => reservation.categories)
+  reservationId: Relation<Reservation>;
 
   @CreateDateColumn()
   createdAt: Date;

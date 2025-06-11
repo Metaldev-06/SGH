@@ -41,7 +41,6 @@ export class User {
   @Column('text', {
     default: Role.EMPLOYEE,
   })
-  @Exclude()
   role: Role;
 
   @CreateDateColumn()
