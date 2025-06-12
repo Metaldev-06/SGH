@@ -16,6 +16,7 @@ import { Category } from 'src/features/category/entities/category.entity';
 import { Client } from 'src/features/clients/entities/client.entity';
 import { Exclude } from 'class-transformer';
 import { Room } from 'src/features/rooms/entities/room.entity';
+import { StateReservation } from 'src/common/enums/state-reservation.enum';
 
 @Entity()
 export class Reservation {
@@ -63,6 +64,19 @@ export class Reservation {
     default: false,
   })
   paid: boolean;
+
+  @Column('text', {
+    default: StateReservation.PENDING,
+  })
+  state: StateReservation;
+
+  @Column('numeric', {
+    nullable: false,
+    precision: 10,
+    scale: 2,
+    default: 0,
+  })
+  advancePayment: number;
 
   @CreateDateColumn()
   createdAt: Date;

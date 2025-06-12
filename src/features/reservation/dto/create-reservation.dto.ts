@@ -2,6 +2,7 @@ import {
   IsBoolean,
   IsDate,
   IsDateString,
+  IsIn,
   IsInt,
   IsNotEmpty,
   IsOptional,
@@ -10,6 +11,7 @@ import {
   Max,
   Min,
 } from 'class-validator';
+import { StateReservation } from 'src/common/enums/state-reservation.enum';
 import { Category } from 'src/features/category/entities/category.entity';
 import { Client } from 'src/features/clients/entities/client.entity';
 import { Room } from 'src/features/rooms/entities/room.entity';
@@ -49,4 +51,15 @@ export class CreateReservationDto {
   @IsOptional()
   @IsBoolean()
   paid?: boolean;
+
+  @IsOptional()
+  @IsIn(Object.values(StateReservation))
+  state?: StateReservation;
+
+  @IsInt()
+  @IsOptional()
+  @Max(99999999)
+  @Min(0)
+  @IsPositive()
+  advancePayment?: number;
 }
