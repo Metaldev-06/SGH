@@ -5,13 +5,14 @@ meta {
 }
 
 get {
-  url: {{URL}}/rooms/?sort=numberRoom
+  url: {{URL}}/rooms/?sort=numberRoom&order=desc
   body: none
   auth: bearer
 }
 
 params:query {
   sort: numberRoom
+  order: desc
 }
 
 auth:bearer {
