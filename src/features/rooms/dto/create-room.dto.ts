@@ -17,8 +17,8 @@ export class CreateRoomDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(1)
-  @MaxLength(20)
-  @Transform(({ value }) => value.trim())
+  @MaxLength(100)
+  @Transform(({ value }) => value.toString().trim())
   numberRoom: string;
 
   @IsNotEmpty()

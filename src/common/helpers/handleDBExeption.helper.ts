@@ -12,11 +12,13 @@ export const HandleDBExceptions = (error: any, ctx: string): never => {
   if (error instanceof QueryFailedError) {
     // Maneja el caso específico de SQLite para restricciones únicas
     if (error.message.includes('SQLITE_CONSTRAINT: UNIQUE constraint failed')) {
-      throw new BadRequestException('The value already exists in the database');
+      throw new BadRequestException('El valor ya existe en la base de datos');
     }
   }
 
   LoggerHelper(error, ctx, true);
 
-  throw new InternalServerErrorException('Unexpected error, check server logs');
+  throw new InternalServerErrorException(
+    'Error inesperado, verifica los logs del servidor',
+  );
 };
